@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Hello
+
+    <script type="text/javascript">
+      const API_URL = 'https://node-x2qkgs--3000.local.webcontainer.io/posts';
+
+      loadData = async () => {
+        try {
+          const resp = await fetch(API_URL);
+
+          const contentType = resp.headers.get('content-type');
+          console.log(contentType);
+          if (!contentType || !contentType.includes('application/json')) {
+            throw new TypeError("Oops, we haven't got JSON!");
+          }
+
+          const data = await resp.json();
+          console.log(data);
+        } catch (error) {
+          console.log('Error fetching data: ', error);
+        }
+      };
+
+      loadData();
+    </script>
+  </body>
+</html>
