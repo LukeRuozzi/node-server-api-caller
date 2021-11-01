@@ -7,8 +7,7 @@
     <title>Document</title>
 
     <script type="text/javascript">
-      const API_URL =
-        'https://node-x2qkgs--3000.local.webcontainer.io/echo?post=1';
+      const API_URL = 'https://node-x2qkgs--5100.local.webcontainer.io/posts';
 
       loadData = async () => {
         try {
@@ -16,8 +15,6 @@
 
           const contentType = resp.headers.get('content-type');
           console.log(contentType);
-
-          document.getElementById('resp-cnt').innerHTML = await resp.text();
 
           const data = await resp.json();
           console.log(data);
@@ -31,7 +28,5 @@
   </head>
   <body>
     Hello
-
-    <div id="resp-cnt"></div>
   </body>
 </html>
