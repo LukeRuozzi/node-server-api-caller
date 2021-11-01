@@ -7,12 +7,11 @@
     <title>Document</title>
 
     <script type="text/javascript">
-      const API_URL =
-        'http://node-x2qkgs--5100.local.webcontainer.io:5100/posts';
+      const API_URL = 'https://node-x2qkgs--5100.local.webcontainer.io/posts';
 
       loadData = async () => {
         try {
-          const resp = await fetch(API_URL, { mode: 'cors' });
+          const resp = await fetch(API_URL);
 
           const contentType = resp.headers.get('content-type');
           console.log(contentType);
